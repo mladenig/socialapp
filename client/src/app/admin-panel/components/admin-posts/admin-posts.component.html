@@ -1,0 +1,27 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">image</th>
+    <th scope="col">title</th>
+    <th scope="col">description</th>
+    <th scope="col">user</th>
+    <th scope="col">isPublic</th>
+    <th scope="col">Likes</th>
+    <th scope="col">Actions</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let post of allPosts">
+    <td scope="row"><a [routerLink]="['/posts', this.post.id]">Go to #{{post.id}}</a></td>
+    <td><a href="{{post.img}}">{{post.img}}</a></td>
+    <td>{{post.title}}</td>
+    <td>{{post.description}}</td>
+    <td>{{post.user.username}}</td>
+    <td>{{post.isPublic}}</td>
+    <td>{{post.allLikes}}</td>
+    <td><button type="button" class="btn btn-danger btn-sm">Danger</button></td>
+  </tr>
+  </tbody>
+</table>

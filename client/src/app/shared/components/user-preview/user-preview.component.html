@@ -1,0 +1,15 @@
+<!--Can be improved-->
+<div class="row mt-2">
+  <div class="col-4 px-1 content-item" *ngFor="let user of this.users">
+      <a [routerLink]="['/users', this.user.id]">
+        <img
+          class="card-img mb-2"
+          src="{{user.profilePic}}"
+          alt="Card image"
+        />
+        <div class="card-info"><p class="username">{{user.username}}</p></div>
+      </a>
+  </div>
+</div>
+
+

@@ -1,0 +1,10 @@
+<!--Not working for now expect big data and pagination improvement-->
+<app-user-preview
+  class="content-wrapper"
+  [users]="this.returnFollowing"
+>
+</app-user-preview>
+<app-pagination
+  (startEndItem)="this.pageChanged($event)"
+  [fullArrayLength]="this.userFollowing.length"
+></app-pagination>

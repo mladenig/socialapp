@@ -1,0 +1,13 @@
+<span *ngIf="authUser">
+  <a
+    *ngIf="this.isFollowed"
+    (click)="this.followUnfollow()"
+  >unfollow
+  </a>
+  <a
+    *ngIf="!this.isFollowed"
+    (click)="this.followUnfollow()"
+  >follow
+  </a>
+</span>
+

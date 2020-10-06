@@ -1,0 +1,13 @@
+
+<app-user-preview
+  class="content-wrapper"
+  [users]="this.returnedArray"
+>
+</app-user-preview>
+<div class="row">
+  <pagination class="mx-auto mt-1"
+    [totalItems]="this.totalPaginationLength"
+    [itemsPerPage]="this.startUsers.take / 2"
+    (pageChanged)="pageChanged($event)
+    "></pagination>
+</div>

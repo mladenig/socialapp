@@ -1,0 +1,89 @@
+<div class="modal-body container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h4 class="">Update user</h4>
+      <img class="form-group text-center" src="{{this.user.profilePic}}" alt="profile picture" />
+      <form [formGroup]="userForm">
+        <div class="form-group">
+          <input
+            formControlName="email"
+            type="email"
+            placeholder="Email"
+            class="form-control"
+          />
+          <span *ngIf="!!this.userForm.controls.email?.errors?.email"
+          >Please enter a valid email</span
+          >
+        </div>
+        <div class="form-group">
+          <input
+            formControlName="bio"
+            type="text"
+            placeholder="text"
+            class="form-control"
+          />
+          <span *ngIf="!!this.userForm.controls.email?.errors?.email"
+          >Please enter a valid bio</span
+          >
+        </div>
+        <div class="form-group">
+          <select class="custom-select" (change)="changePosition($event)">
+            <option value="" disabled>Choose your position</option>
+            // Something  wrong hear on  position.position. The hole dropdown can be improved
+            <option *ngFor="let position of this.position" [ngValue]="position">{{position.position}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" name="file" (change)="fileChangeEvent($event)" />
+              <label class="custom-file-label" for="inputGroupFile02" id="inputGroupFile02">Choose file</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+
+          <image-cropper class="rounded"
+                         [imageChangedEvent]="imageChangedEvent"
+                         [maintainAspectRatio]="true"
+                         [aspectRatio]="1"
+                         [resizeToWidth]="320"
+                         [cropperMinWidth]="320"
+                         [onlyScaleDown]="true"
+                         [roundCropper]="false"
+                         format="png"
+                         outputType="base64"
+                         (imageCropped)="imageCropped($event)"
+                         (imageLoaded)="imageLoaded()"
+                         (cropperReady)="cropperReady()"
+                         (loadImageFailed)="loadImageFailed()"
+                         [style.display]="showCropper ? null : 'none'"
+                         [alignImage]="'center'"
+          ></image-cropper>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 mb-3">
+      <button
+        class="btn btn-outline-primary btn-block"
+        type="submit"
+        (click)="uploadUser()"
+        [disabled]="this.userForm.invalid"
+      >
+        Update
+      </button>
+    </div>
+    <div class="col-sm-6">
+      <button
+        class="btn btn-outline-secondary btn-block"
+        type="submit"
+        (click)="this.modalRef.hide()"
+      >
+        Back
+      </button>
+    </div>
+  </div>
+</div>

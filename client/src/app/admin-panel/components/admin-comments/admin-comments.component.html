@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">comment</th>
+    <th scope="col">Comment by</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let comment of allComments">
+    <th scope="row">{{comment.id}}</th>
+    <td>{{comment.comment}}</td>
+    <td>{{comment.user.username}}</td>
+    <td><button type="button" class="btn btn-danger btn-sm">Delete on progress</button></td>
+  </tr>
+  </tbody>
+</table>

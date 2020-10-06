@@ -1,0 +1,50 @@
+<div class="modal-body container">
+  <div class="row">
+    <div class="login-img col-lg-12">
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <input
+            formControlName="username"
+            type="text"
+            placeholder="Enter your username"
+            class="form-control"
+          />
+          <span *ngIf="!!loginForm.controls.username?.errors?.minlength"
+            >Your username should have at least 3 characters</span
+          >
+        </div>
+        <div class="form-group">
+          <input
+            formControlName="password"
+            type="password"
+            placeholder="********"
+            class="form-control"
+          />
+          <span *ngIf="!!loginForm.controls.password?.errors?.minlength"
+            >Password must be at least 3 characters</span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 mb-3">
+      <button
+        class="btn btn-outline-primary btn-block"
+        type="submit" (click)="login()"
+        [disabled]="this.loginForm.invalid"
+      >
+        Login
+      </button>
+    </div>
+    <div class="col-sm-6">
+      <button
+        class="btn btn-outline-secondary btn-block"
+        type="submit"
+        (click)="this.modalRef.hide()"
+      >
+        Back
+      </button>
+    </div>
+  </div>
+</div>

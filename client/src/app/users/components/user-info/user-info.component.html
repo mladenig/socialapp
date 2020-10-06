@@ -1,0 +1,47 @@
+<h1><p>{{this.fullUser.username}}</p></h1>
+<div class="row">
+  <div class="col-6">
+    <img class="img-fluid center-block" src="{{this.fullUser.profilePic}}" alt="user avatar" />
+  </div>
+  <div class="col-6">
+    <div class="row mb-4">
+      <div class="col-sm-6">
+        <h4>Followers <span class="badge badge-secondary">{{this.fullUser.followersCount}}</span></h4>
+      </div>
+      <div class="col-sm-6">
+        <h4>Following <span class="badge badge-secondary">{{this.fullUser.followingCount}}</span></h4>
+      </div>
+      <div class="col-md-12">
+        <ng-template [ngIf]="this.fullUser.position">
+          <h4>Position</h4><p>{{this.fullUser.position.position}}</p>
+        </ng-template>
+        <ng-template [ngIf]="this.fullUser.bio">
+          <h4>Bio</h4><p>{{this.fullUser.bio}}</p>
+        </ng-template>
+      </div>
+    </div>
+    <div class="align-text-bottom">
+       <app-follow-unfollow-user
+         *ngIf="this.fullUser.id !== loggedUser.id else myProfile"
+         [userToFollowUnfollow]="this.fullUser.id"
+       ></app-follow-unfollow-user>
+       <ng-template #myProfile>
+         <div class="row">
+           <div class="col-sm-6">
+             <button
+               type="button"
+               class="btn btn-outline-success btn-block mb-2"
+               (click)="updateUserModal()"
+             >Update</button>
+           </div>
+           <div class="col-sm-6">
+             <button type="button"
+                     class=" btn btn-outline-danger btn-block"
+                     (click)="deleteUser()"
+             >Delete</button>
+           </div>
+         </div>
+       </ng-template>
+      </div>
+  </div>
+</div>

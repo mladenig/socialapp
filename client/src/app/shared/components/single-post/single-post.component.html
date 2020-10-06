@@ -1,0 +1,40 @@
+<div class="Instagram-card">
+  <div class="Instagram-card-header">
+    <img
+      [src]="post.user.profilePic"
+      class="Instagram-card-user-image"
+    />
+    <a class="Instagram-card-user-name" (click)="this.viewPost()">
+      {{this.post.user.username}}
+    </a>
+    <div class="Instagram-card-time"></div>
+  </div>
+
+  <div class="Instagram-card-image">
+    <img src="{{ post.img }}" height="600px" (click)="viewPost()"/>
+  </div>
+
+  <div class="Instagram-card-content">
+    <div class="actions">
+      <a class="footer-action-icons"
+      (click)="likePost()"
+        ><i
+          class="fa {{ !toggleLike ? 'fa-heart-o' : 'fa-heart' }}"
+          (click)="toggleLike = !toggleLike"
+        ></i
+      ></a>
+      <a [routerLink]="['/posts',post.id]" class="footer-action-icons"><i class="fa fa-comment-o"></i></a>
+    </div>
+    <p class="Likes">
+      <small>Liked by</small> <b>{{post.allLikes}}</b> <small>people</small>
+    </p>
+    <h4><strong>{{post.title}}</strong></h4>
+    <p class="Likes">
+      <small>{{ post.description }}</small>
+    </p>
+    <a *ngIf="this.post.comments" class="comment-btn" [routerLink]="['/posts',post.id]">View all {{post.comments.length}} comments</a>
+    <p class="Likes">
+      <!-- <small>2 hours ago</small> -->
+    </p>
+  </div>
+</div>

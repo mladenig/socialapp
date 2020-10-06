@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+  <div class="container">
+    <h1><img  width="100px" src="../../../assets/images/smladlogo.png" /></h1>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto ">
+        <li class="nav-item active" [routerLinkActive]="['active']" >
+          <button class="btn nav-link" [routerLink]="['posts']">
+            Posts <span class="sr-only">(current)</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <ng-template [ngIf]="!loggedIn">
+            <button class="btn nav-link" (click)="loginModal()">
+              Login
+            </button>
+          </ng-template>
+        </li>
+        <li class="nav-item">
+          <ng-template [ngIf]="loggedIn">
+            <button class="btn nav-link" [routerLink]="['/users']">
+              Users
+            </button>
+          </ng-template>
+        </li>
+        <li class="nav-item">
+          <ng-template [ngIf]="loggedIn">
+            <button
+              class="btn nav-link"
+              [routerLink]="['/users', this.user.id]"
+            >
+              {{user.username}}
+            </button>
+          </ng-template>
+        </li>
+        <li class="nav-item">
+          <ng-template [ngIf]="loggedIn">
+            <button class="btn nav-link" (click)="triggerLogout()">
+              Logout
+            </button>
+          </ng-template>
+        </li>
+        <ng-template [ngIf]="!loggedIn">
+          <li class="nav-item">
+            <button class="btn nav-link" (click)="registerModal()">
+              Register
+            </button>
+          </li>
+        </ng-template>
+        <ng-template [ngIf]="loggedIn">
+          <li class="nav-item dropdown" *ngIf="user.role === 'Admin'  && loggedIn" >
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin panel
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['admin-panel/users']">Users</a>
+              <a class="dropdown-item" [routerLink]="['admin-panel/posts']">Posts</a>
+              <a class="dropdown-item" [routerLink]="['admin-panel/comments']">Comments</a>
+            </div>
+          </li>
+        </ng-template>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search coming soon">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+

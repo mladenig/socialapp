@@ -1,0 +1,38 @@
+:host {
+  margin: 0 0 20px 0;
+
+  .comment-wrapper {
+    .panel-body {
+      max-height: 650px;
+      overflow: auto;
+    }
+
+    .media-list .media img {
+      width: 64px;
+      height: 64px;
+      border: 2px solid #e5e7e8;
+    }
+
+    .media-list .media {
+      border-bottom: 1px dashed #efefef;
+      margin-bottom: 25px;
+    }
+
+    .comment {
+      list-style: none;
+    }
+
+    .commenter {
+      color: #2780e3;
+    }
+
+    .img-circle {
+      height: 50px;
+      padding-right: 20px;
+    }
+  }
+
+  .row {
+    justify-content: center;
+  }
+}

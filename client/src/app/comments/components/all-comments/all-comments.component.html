@@ -1,0 +1,5 @@
+<div class="comments-container">
+  <div *ngIf="comments">
+  <app-single-comment *ngFor="let comment of comments" [comment]="comment"></app-single-comment>
+  </div>
+</div>

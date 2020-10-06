@@ -1,0 +1,115 @@
+:host {
+  .Instagram-card {
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+
+  .Instagram-card-header {
+    padding: 10px;
+    height: 60px;
+    // display: flex;
+    // align-items: center;
+  }
+
+  .Instagram-card-user-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    padding: 2px;
+    border: 2px solid rgb(56, 110, 172);
+  }
+
+  .Instagram-card-image > img {
+    width: 100%;
+    height: auto;
+  }
+
+  .Instagram-card-time {
+    float: right;
+    width: 80px;
+    padding-top: 10px;
+    text-align: right;
+    color: #999;
+  }
+
+  .Instagram-card-user-name {
+    margin-left: 20px;
+    font-weight: bold;
+    color: #262626;
+  }
+
+  .Instagram-card-content {
+    padding: 0px 10px 0;
+  }
+
+  .Likes {
+    b {
+      margin: 0 6px;
+    }
+  }
+
+  .Instagram-card-content-user {
+    font-weight: bold;
+    color: #262626;
+  }
+
+  .hashtag {
+    color: #2780E3;
+  }
+
+  .comments {
+    color: #999;
+  }
+
+  .user-comment {
+    color: #2780E3;
+  }
+
+  .Instagram-card-footer {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .footer-action-icons {
+    font-size: 16px;
+    color: #ccc;
+  }
+
+  .comments-input {
+    border: none;
+    margin-left: 10px;
+    width: 100%;
+  }
+
+  .comment-btn {
+    color: #adb5bd;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    a {
+      font-size: 23px;
+      color: #2780E3;
+
+      + a {
+        margin-left: 10px;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<hr />
+<div class="modal-body container p-0 pb-0">
+  <div class="row">
+    <div class="col-lg-12">
+      <h6 class="text-center">Post Comment</h6>
+      <form
+        [formGroup]="commentCreationForm"
+        class="comm-content"
+        (ngSubmit)="postComment()"
+      >
+        <textarea
+          #textArea
+          formControlName="comment"
+          type="text"
+          placeholder="Content"
+          class="form-control"
+          (keydown.enter)="postComment()"
+        ></textarea>
+        <span *ngIf="!!commentCreationForm.controls.content?.errors?.minlength"
+          >Your comment should have at least 4 characters</span
+        >
+        <br />
+        <button
+          class="btn btn-info"
+          [disabled]="commentCreationForm.invalid"
+          type="submit"
+        >
+          Post
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

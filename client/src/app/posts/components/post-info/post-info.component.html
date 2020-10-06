@@ -1,0 +1,54 @@
+<div class="Instagram-card">
+  <div class="Instagram-card-header">
+    <div>
+      <img [src]="postData.user.profilePic" class="Instagram-card-user-image" />
+      <a class="Instagram-card-user-name" (click)="viewUser()">
+        {{ postData.user.username }}
+      </a>
+    </div>
+
+    <div class="actions" *ngIf="ownership">
+      <button type="button" class="btn btn-primary" (click)="updatePostModal()">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button type="button" class="btn btn-danger" (click)="deletePost()">
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+    <!-- <div class="Instagram-card-time"> -->
+    <!-- </div> -->
+  </div>
+
+  <div class="Instagram-card-image">
+    <img src="{{ postData.img }}" height="600px" />
+  </div>
+
+  <div class="Instagram-card-content">
+    <div class="actions">
+      <a class="footer-action-icons like" (click)="likePost()"
+        ><i
+          class="fa {{ !toggleLike ? 'fa-heart-o' : 'fa-heart' }}"
+          (click)="toggleLike = !toggleLike"
+        ></i
+      ></a>
+      <a class="footer-action-icons comment"><i class="fa fa-comment-o"></i></a>
+    </div>
+    <p class="Likes">
+      <small>Liked by</small> <b class="likes-data">{{ postData.allLikes }}</b>
+      <small>people</small>
+    </p>
+    <p class="Likes">
+      <small>{{ postData.description }}</small>
+    </p>
+    <p class="Likes">
+      <small>{{postData.createdAt | date}}</small>
+    </p>
+  </div>
+</div>
+<app-single-comment
+  *ngFor="let comment of postData?.comments"
+  (delete)="deleteComment($event)"
+  [comment]="comment"
+></app-single-comment>
+<app-post-comment (submitComment)="postComment($event)"></app-post-comment>
+

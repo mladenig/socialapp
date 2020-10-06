@@ -1,0 +1,21 @@
+:host {
+  .btn-info {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    color: #2780e3;
+    border: 1px solid rgb(33, 114, 206);
+  }
+  .btn-info:not([disabled]):hover,
+  .btn-info:not([disabled]):focus,
+  .btn-info:not([disabled]):active {
+    box-shadow: none !important;
+    border-color: transparent;
+    background-color: #2780e3;
+    color: white;
+    outline: none;
+  }
+  .row {
+    text-align: center;
+  }
+}

@@ -1,0 +1,16 @@
+<button type="button" class="btn btn-block newp" (click)="createPostModal()">
+  New Post
+</button>
+
+<app-single-post
+  *ngFor="let post of posts; trackBy: trackByFn"
+  [post]="post"
+></app-single-post>
+<div class="paginator">
+  <pagination
+    class="mx-auto mt-1"
+    [totalItems]="count"
+    [itemsPerPage]="pageSize"
+    (pageChanged)="pageChanged($event)"
+  ></pagination>
+</div>
